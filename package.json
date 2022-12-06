@@ -1,0 +1,30 @@
+{
+  "name": "neues-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "run-p watch watch:styles",
+    "build": "run-s clean clean:styles build:styles copy",
+    "deploy": "run-s build publish",
+    "build:styles": "sass src/scss:src/styles",
+    "watch": "live-server src",
+    "watch:styles": "sass src/scss:src/styles --watch",
+    "clean": "rm -rf dist",
+    "clean:styles": "rm -rf src/styles",
+    "copy": "mkdir dist && rsync -avr --exclude=\"/scss\" src/ dist",
+    "publish": "gh-pages -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jensensitve/sass_test.git"
+  },
+  "keywords": [],
+  "author": "Jens",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jensensitve/sass_test/issues"
+  },
+  "homepage": "https://github.com/jensensitve/sass_test#readme"
+}
